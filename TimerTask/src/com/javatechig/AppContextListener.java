@@ -1,8 +1,8 @@
 package com.javatechig;
 
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -25,15 +25,20 @@ public class AppContextListener implements ServletContextListener {
 		TimerTask vodTimer = new VodTimerTask();
 
 		Timer timer = new Timer();
-		timer.schedule(vodTimer, 1000, (2 * 1000));
+		timer.schedule(vodTimer, 1000, (2 * 1000));		
+		
 
+		
 	}
 
 	class VodTimerTask extends TimerTask {
-		
+		public VodTimerTask() {
+			System.gc();
+		} 
 		@Override
 		public void run() {
-			System.out.println("osh");
+			new Vesh();
+			return;
 		}
 	}
 
